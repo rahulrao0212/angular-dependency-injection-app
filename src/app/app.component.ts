@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProductService } from './product-service';
+import { Product } from './product';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-dependency-injection-app';
+
+  products: Product[];
+
+  constructor(private productService: ProductService) {
+  }
+
+  getProducts() {
+    this.products = this.productService.getProducts();
+  }
 }
